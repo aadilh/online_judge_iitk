@@ -9,7 +9,7 @@ function open_contest(contest_id,base_url)
 
 function open_problem(problem_id,base_url)
 {
-	alert(base_url);
+	//alert(base_url);
 	var win = window.open(base_url+"index.php/contests/problem/"+problem_id,'_blank');
 	win.focus();
 }
