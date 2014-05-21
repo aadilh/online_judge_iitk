@@ -19,7 +19,7 @@
                                             echo '<div class="item">' ;
                                             echo ' <i class="checkered large flag icon"></i>' ;
                                             echo ' <div class="content">';
-                                            echo '<a class="header" onclick="open_contest(\''.$contest_id.'\');" >'.$name.'</a><br>' ;
+                                            echo '<a class="header" onclick="open_contest(\''.$contest_id.'\',\''.base_url().'\');" >'.$name.'</a><br>' ;                                         
                                             echo '</div></div>' ;
 
 

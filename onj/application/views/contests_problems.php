@@ -25,7 +25,7 @@
 
 
                                     echo '<div class="ui items">' ;
-                                    echo '<div class="item" onclick="open_problem(\''.$pl->problem_id.'\');">' ;
+                                    echo '<div class="item" onclick="open_problem(\''.$pl->problem_id.'\',\''.base_url().'\');">' ;
                                     echo '<div class="content">' ;
                                     echo '<div class="meta"><div class="ui green label"><i class="checkmark icon"></i> Accepted</div></div>' ;
                                     echo ' <div class="name">'.$pl->problem_name.'</div>' ;
