@@ -1,3 +1,13 @@
+<!--
+
+This controller is meant to control the views , models and scipts related to About tab 
+
+
+
+-->
+
+
+
 <?php
 
 

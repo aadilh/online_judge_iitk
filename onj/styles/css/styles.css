@@ -6,7 +6,8 @@ body,html {
 .nav{
     position:fixed;
     left:0;
-    top:80px;
+    top:100px;
+    height: 80%;
     
 }
 
