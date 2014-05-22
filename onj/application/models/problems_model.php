@@ -1,3 +1,18 @@
+<!--
+
+This is a model to retrieve and post data to the 'problems' table on the MySQL server
+
+get_problems_by_contest_id() : function retrieves the all problems with given contest id with their short description 
+								and other related informations being displayed on the contest page
+
+get_contest_by_id() : function retreives all the information about contest by using contest_id parameter given to it 
+
+
+
+
+-->
+
+
 <?php
 
 

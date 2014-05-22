@@ -1,3 +1,14 @@
+<!--
+
+This controller is meant to control the views , models and scipts related to Home tab 
+
+
+
+-->
+
+
+
+
 <?php
 
 
