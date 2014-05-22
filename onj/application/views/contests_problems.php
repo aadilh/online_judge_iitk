@@ -8,7 +8,7 @@
 
 
    <div class="ui raised segment">
-                                  <div class="ui black top attached label">Problems</div>
+                                  <div class="ui red top attached label">Problems</div>
                                   
                                   <?php
 
