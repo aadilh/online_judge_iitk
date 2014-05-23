@@ -6,7 +6,11 @@ _contruct() : is constructor which is used to call parent constructor
 I added this contructor because without it views were not loading 
 if you have same problem with other controller please add this constructor
 
+<<<<<<< HEAD
 contests() : function displays the main contest page on screen grabbing data from  the two models 
+=======
+main() : function displays the main contest page on screen grabing data from  the two models 
+>>>>>>> upstream/master
               namely 'contest_model.php' and 'problem_model.php'
 
 
@@ -32,10 +36,10 @@ class Contests extends CI_Controller {
     
     public function index(){
               
-          $this->contests();
+          $this->main();
      
     }
-    public function contests(){
+    public function main(){
             $data['title']="Contests";
             $data['active']="Contests";
           
