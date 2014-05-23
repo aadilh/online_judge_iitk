@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<title>Problem </title>
+		<link rel="stylesheet" type="text/css" href="semantic/packaged/css/semantic.css">
+		<style type="text/css">
+		</style>
+		
+		<script type="text/javascript" src="semantic/packaged/javascript/semantic.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+		<script type="text/javascript">
+		</script>
+
+	</head>
+
+	<body>
+
+		<!-- Menu on side -->
+				<div class="ui vertical menu">
+				<div class="ui compact menu">
+				  <div class="ui dropdown item">
+				    <i class="home icon"></i>
+				    <div class="menu">
+				      <a class="item">Home</a>
+				    </div>
+				  </div>
+				</div>
+				</div>
+
+		<!-- <div class="ui compact menu">
+  			<div class="hover item">
+				<div class="ui vertical icon menu">
+				  <a class="teal item">
+				    <i class="home icon"></i>
+				  </a>
+				  <a class="teal item">
+				    <i class="bar chart icon"></i>
+				  </a>
+				  <a class="green item">
+				    <i class="star icon"></i>
+				  </a>
+				</div>
+			</div>
+		</div> -->
+
+		<!-- Menu ends-->
+
+
+		<div class="ui raised segment signin">
+			<h3 class="ui inverted blue block header"> SIGN IN </h3>
+			<div class="ui two column grid basic segment">
+				<div class="column">
+					<div class="ui blue stacked segment">
+						hello
+					</div>
+				</div>
+				<div class="ui vertical divider"> OR </div>
+				<div class="center aligned column">
+					FB
+				</div>
+			</div>
+		</div>
+
+		
+
+
+		<form action="upload.php" method="POST" enctype="multipart/form-data">
+		Filename:
+		<input type="file" name="file" value="bro" id="file" ><br>
+		
+		<select name="lang" id="name">
+            <option value="c" >C</option>
+            <option value="cpp">C++</option>
+            <option value="java">Java</option>
+        </select>
+		<input type="submit" name="submit" value="Submit" onclick="load();">
+		</form>	
+
+		<div id="result"></div>
+	</body>
+</html>
