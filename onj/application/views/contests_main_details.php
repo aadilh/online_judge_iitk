@@ -82,20 +82,20 @@ function get_date($idate){
                                          <div class="ui two column divided grid">
                                             <div class="row">
                                                  <div class="column">
-                                                      <div class="ui blue label">
+                                                      <div class="ui black label">
                                                           Users <i class="users icon"></i> 237
                                                       </div>
                                                               <br><br>
-                                                      <div class="ui blue label">
+                                                      <div class="ui black label">
                                                            Total Submissions <i class="cloud upload icon"></i> 1026
                                                       </div>
                                                         <br><br>
-                                                      <div class="ui blue label">
+                                                      <div class="ui black label">
                                                           Accepted Submissions <i class="checkmark sign icon"></i> 671
                                                       </div>
                                                   </div>
                                                   <div class="column">
-                                                        <div class="ui blue label">
+                                                        <div class="ui black label">
                                                           Type <i class="browser icon"></i>
 
                                                           <?php
@@ -110,7 +110,7 @@ function get_date($idate){
 
 
                                                       </div>  <br><br>
-                                                        <div class="ui blue label">
+                                                        <div class="ui black label">
                                                           Start Time <i class="calendar icon"></i>
                                                           <?php
                                                             foreach ($contest_details as $detail) {
@@ -122,7 +122,7 @@ function get_date($idate){
 
 
                                                       </div> <br><br>
-                                                      <div class="ui blue label">
+                                                      <div class="ui black label">
                                                           End Time <i class="calendar icon"></i> 
                                                           <?php
                                                             foreach ($contest_details as $detail) {

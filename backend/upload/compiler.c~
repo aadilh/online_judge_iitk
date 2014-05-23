@@ -1,0 +1,30 @@
+#include<unistd.h>
+#include<stdio.h>
+#include<string.h>
+int main(int argc,char** argv)
+{
+	chdir("/var/chroot");
+        if (chdir("/var/chroot") != 0) {
+        return 127;//failed to open chroot
+        }
+	if(strcmp(argv[3],"c")!=0){
+	    //char cmd[]={"g++ -pipe -lm -s -fomit-frame-pointer "};
+	    char cmd[]={"sudo g++ "};
+	    strcat(cmd,argv[2]);
+	    strcat(cmd,".cpp -o ");
+	    strcat(cmd,argv[1]);
+	    strcat(cmd," -lm");
+	    system(cmd);
+	    }
+	else{
+	    //char cmd[]={"gcc -pipe -lm -s -fomit-frame-pointer "};
+	    char cmd[]={"sudo gcc "};
+	    strcat(cmd,argv[2]);
+	    strcat(cmd,".c -o ");
+	    strcat(cmd,argv[1]);
+	    strcat(cmd," -lm");
+	    printf("%s\n",cmd);
+	    system(cmd);
+	}
+	return 0;
+}	
