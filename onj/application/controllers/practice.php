@@ -25,11 +25,12 @@ class Practice extends CI_Controller{
 		$this->load->view("header",$data);
 		$this->load->view("body_nav",$data);
 
-		$this->load->view("practice_type_table");
-
 		$data['practice_type_selected'] = $this->uri->segment(2);
 
+		$this->load->view("practice_type_table",$data);
+
 		$this->load->view("practice_type",$data);
+		echo "<h1> ".$this->uri->segment(2)."</h1>";
 
 
 	}

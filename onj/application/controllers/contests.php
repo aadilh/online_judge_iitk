@@ -6,11 +6,11 @@ _contruct() : is constructor which is used to call parent constructor
 I added this contructor because without it views were not loading 
 if you have same problem with other controller please add this constructor
 
-contests() : function displays the main contest page on screen grabing data from  the two models 
+contests() : function displays the main contest page on screen grabbing data from  the two models 
               namely 'contest_model.php' and 'problem_model.php'
 
 
-problem() : function displays clicked problem on screen grabing data from 'problem_model.php' model
+problem() : function displays clicked problem on screen grabbing data from 'problem_model.php' model
 
 
 
