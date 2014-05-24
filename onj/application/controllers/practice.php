@@ -21,75 +21,150 @@ class Practice extends CI_Controller{
 
 	public function index(){
 		
-		$data['title'] = "Easy | Practice";
-		$data['active'] = "Practice" ;
+		$practice_data['title'] = "Easy | Practice";
+		$practice_data['active'] = "Practice" ;
 
-		$this->load->view("header",$data);
-		$this->load->view("body_nav",$data);
+		$this->load->view("header",$practice_data);
+		$this->load->view("body_nav",$practice_data);
 
-		$data['practice_type_selected'] = $this->uri->segment(2);
-
-		if ($data['practice_type_selected'] == 'easy' || $data['practice_type_selected'] == '')
+		$practice_data['practice_type_selected'] = $this->uri->segment(2);
+		
+		if ($practice_data['practice_type_selected'] == 'easy' || $practice_data['practice_type_selected'] == '')
 			$this->easy();
-		else if ($data['practice_type_selected'] == 'medium')
+		else if ($practice_data['practice_type_selected'] == 'medium')
 			$this->medium();
-		else if ($data['practice_type_selected'] == 'hard')
+		else if ($practice_data['practice_type_selected'] == 'hard')
 			$this->hard();
-	}	
+	}
+
+# If the easy problems link is selected or practice page is opened,
+# the easy function will be called displaying the first page of problems.
+# Else, the category page is opened with the default page set to 1.		
 
 	public function easy()
 	{		
-		$data['title'] = "Easy | Practice";
-		$data['active'] = "Practice" ;
-		$data['practice_type_selected'] = $this->uri->segment(2);
+		$practice_data['title'] = "Easy | Practice";
+		$practice_data['active'] = "Practice" ;
+		$practice_data['practice_type_selected'] = $this->uri->segment(2);
 
 		//to load header and body nav only once.
-		if ($data['practice_type_selected'] == 'easy'){
-			$this->load->view("header",$data);
-			$this->load->view("body_nav",$data);
+		if ($practice_data['practice_type_selected'] == 'easy'){
+			$this->load->view("header",$practice_data);
+			$this->load->view("body_nav",$practice_data);
 		}
 		
-		$this->load->view("practice_type_table",$data);
+		#To get the problems of the desired category.
+		$this->load->model("problems_model");
 
-		$data['practice_type_selected'] = 'easy';		// So that default heading is not empty on practice page.
+		$this->load->view("practice_type_table",$practice_data);
 
-		$this->load->view("practice_type",$data);
-		
+		$sort_by=$this->uri->segment(4);
+		//echo "<h1>".$this->uri->segment(4)."</h1>";
+
+		if ($sort_by == '' )
+		{
+			//echo "<h1>redirecting...</h1>";
+			redirect(base_url().'practice/easy/1/sort_accepted_submissions');
+		}
+
+		// So that default heading is not empty on practice page.
+		$practice_data['practice_type_selected'] = 'easy';		
+		$practice_data['page_num'] = $this->uri->segment(3);
+
+		if ($practice_data['page_num'] == '')
+			$practice_data['page_num'] = '1';
+
+		$sort_by = substr($sort_by,	5);
+		//echo "<h1>".$sort_by."</h1>";
+
+		#Got list of problems to be shown in the category.
+		$practice_data['problems'] = $this->problems_model->get_problems_by_difficulty('1',$sort_by);
+
+		$this->load->view("practice_type",$practice_data);
+		$this->load->view("practice_type_problems_list",$practice_data);
 	}
+
+/*
+
+Copy of the above easy function with a few changes so as to accomodate the change in difficulty.
+Could not integrate with easy as the function name appears in uri.
+
+*/
 
 	public function medium()
 	{		
-		$data['title'] = "Medium | Practice";
-		$data['active'] = "Practice" ;
-		$data['practice_type_selected'] = $this->uri->segment(2);
+		$practice_data['title'] = "Medium | Practice";
+		$practice_data['active'] = "Practice" ;
+		$practice_data['practice_type_selected'] = $this->uri->segment(2);
 
 		//to load header and body nav only once.
-		if ($data['practice_type_selected'] == 'medium'){
-			$this->load->view("header",$data);
-			$this->load->view("body_nav",$data);
+		if ($practice_data['practice_type_selected'] == 'medium'){
+			$this->load->view("header",$practice_data);
+			$this->load->view("body_nav",$practice_data);
 		}
 		
-		$this->load->view("practice_type_table",$data);
+		$this->load->model("problems_model");
 
-		$this->load->view("practice_type",$data);
+		$this->load->view("practice_type_table",$practice_data);
+
+		$sort_by=$this->uri->segment(4);
+		//echo "<h1>".$this->uri->segment(4)."</h1>";
+
+		if ($sort_by == '' )
+		{
+			//echo "<h1>redirecting...</h1>";
+			redirect(base_url().'practice/medium/1/sort_accepted_submissions');
+		}
+
+		$practice_data['page_num'] = $this->uri->segment(3);
+
+		if ($practice_data['page_num'] == '')
+			$practice_data['page_num'] = '1';
+
+		$sort_by = substr($sort_by,	5);
+
+		$practice_data['problems'] = $this->problems_model->get_problems_by_difficulty('2',$sort_by);
+
+		$this->load->view("practice_type",$practice_data);
+		$this->load->view("practice_type_problems_list",$practice_data);
 		
 	}
 
 	public function hard()
 	{		
-		$data['title'] = "Hard | Practice";
-		$data['active'] = "Practice" ;
-		$data['practice_type_selected'] = $this->uri->segment(2);
+		$practice_data['title'] = "Hard | Practice";
+		$practice_data['active'] = "Practice" ;
+		$practice_data['practice_type_selected'] = $this->uri->segment(2);
 
-		$this->load->view("header",$data);
-		if ($data['practice_type_selected'] == 'hard') $this->load->view("body_nav",$data);
+		if ($practice_data['practice_type_selected'] == 'hard'){
+			$this->load->view("header",$practice_data);
+			$this->load->view("body_nav",$practice_data);
+		}
 
+		$this->load->model("problems_model");
 		
-		$this->load->view("practice_type_table",$data);
+		$this->load->view("practice_type_table",$practice_data);
+		
+		$sort_by=$this->uri->segment(4);
+		//echo "<h1>".$this->uri->segment(4)."</h1>";
 
-		$this->load->view("practice_type",$data);
-		//echo "<h1> ".$this->uri->segment(2)."</h1>";
+		if ($sort_by == '' )
+		{
+			//echo "<h1>redirecting...</h1>";
+			redirect(base_url().'practice/hard/1/sort_accepted_submissions');
+		}
 
+		$practice_data['page_num'] = $this->uri->segment(3);
+
+		if ($practice_data['page_num'] == '')
+			$practice_data['page_num'] = '1';
+
+		$sort_by = substr($sort_by,	5);
+
+		$practice_data['problems'] = $this->problems_model->get_problems_by_difficulty('3',$sort_by);
+
+		$this->load->view("practice_type",$practice_data);
+		$this->load->view("practice_type_problems_list",$practice_data);
 
 	}
 
@@ -107,23 +182,23 @@ class Practice extends CI_Controller{
         if($problem_id !="")
         {
 
-            $problem_data['problem_details'] = $this->problems_model->get_problem_by_id($problem_id);
+            $practice_data['problem_details'] = $this->problems_model->get_problem_by_id($problem_id);
 
 
-            $data['title']="Problem";
-            $data['active']="Contests";
+            $practice_data['title']="Problem";
+            $practice_data['active']="Practice";
           
-            $this->load->view('header',$data);
-            $this->load->view('body_nav',$data);
-            $this->load->view('problem_head',$problem_data);
-            $this->load->view('problem_desc',$problem_data);
+            $this->load->view('header',$practice_data);
+            $this->load->view('body_nav',$practice_data);
+            $this->load->view('problem_head',$practice_data);
+            $this->load->view('problem_desc',$practice_data);
             $this->load->view('problem_submission');
             $this->load->view('problem_recent_submissions');
             $this->load->view('problem_user_submissions');
         }
         else
         {
-            redirect(base_url().'/index.php/contests/contests');
+            redirect(base_url().'/practice/easy');
         }
 
     }
