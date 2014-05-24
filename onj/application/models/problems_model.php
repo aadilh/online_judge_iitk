@@ -26,9 +26,9 @@ class Problems_model extends CI_Model{
 
 	}
 
-	public function get_problems_by_difficulty($difficulty){
+	public function get_problems_by_difficulty($difficulty,$sort_by){
 
-		$q=$this->db->query("SELECT `problem_id` , `problem_name` ,`short_desc`,`accepted_submissions`,`difficulty` FROM `problems` WHERE `difficulty` = '".$contest_id."' ORDER BY `difficulty`");
+		$q=$this->db->query("SELECT `problem_id` , `problem_name` ,`short_desc`,`accepted_submissions`,`difficulty`, `total_submissions` FROM `problems` WHERE `difficulty` = '".$difficulty."' ORDER BY `".$sort_by."` DESC");
 
 		return $q->result();
 

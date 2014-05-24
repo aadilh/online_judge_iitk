@@ -30,4 +30,15 @@
 
                                   </div>
                             </div>
+                            <div class="ui selection dropdown">
+						  <input name="gender" type="hidden">
+						  <div class="default text">Sort By</div>
+						  <i class="dropdown icon"></i>
+						  <div class="menu">
+						    <div class="item" data-value="sort_accepted_submissions">Accepted Submissions</div>
+						    <div class="item" data-value="sort_total_submissions">Total Submissions</div>
+						    <div class="item" data-value="sort_id">Date added</div>
+
+						  </div>
+						</div>
                         </div>

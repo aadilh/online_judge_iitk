@@ -9,9 +9,20 @@
                             <?php
 
                             foreach ($problem_details as $p) {
-                                echo $p->contest_name ;
+                                if ($active == "Practice")
+                                {
+                                    switch ($p->difficulty)
+                                    {
+                                        case 1: echo "Easy"; break;
+                                        case 2: echo "Medium"; break;
+                                        case 3: echo "Hard"; break;
+                                    }
+                                }
+                                else if ($active == "Contests")
+                                {
+                                    echo $p->contest_name;
+                                }
                             }
-
                             ?>
 
                         </p>
