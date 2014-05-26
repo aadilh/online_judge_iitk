@@ -1,13 +1,3 @@
-<!--
-
-This controller is meant to control the views , models and scipts related to Forum tab 
-
-
-
--->
-
-
-
 <?php
 
 
@@ -27,6 +17,7 @@ class Forum extends CI_Controller{
 
 		$this->load->view("header",$data);
 		$this->load->view("body_nav",$data);
+		$this->load->view("forum_options",$data);
 
 	}
 }
